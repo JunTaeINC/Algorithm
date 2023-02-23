@@ -1,12 +1,13 @@
-package com.level0;
+package com.level0.p120803;
 
+import com.level0.p120803.P120803;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 class P120803Test {
 
     private P120803 p120803;
