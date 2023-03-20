@@ -1,4 +1,4 @@
-package study.p1845;
+package study.hash.p1845;
 
 import java.util.ArrayList;
 import java.util.List;

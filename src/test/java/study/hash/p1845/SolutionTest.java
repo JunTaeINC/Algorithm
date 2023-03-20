@@ -1,6 +1,7 @@
-package study.p1845;
+package study.hash.p1845;
 
 import org.junit.jupiter.api.Test;
+import study.hash.p1845.Solution;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -18,6 +19,6 @@ class SolutionTest {
 
     @Test
     void test3() {
-        assertThat(new Solution().solution(new int[]{3, 3, 3, 2, 2, 2ㅎ})).isEqualTo(2);
+        assertThat(new Solution().solution(new int[]{3, 3, 3, 2, 2, 2})).isEqualTo(2);
     }
 }

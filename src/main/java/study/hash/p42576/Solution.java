@@ -1,4 +1,4 @@
-package study.p42576;
+package study.hash.p42576;
 
 import java.util.*;
 

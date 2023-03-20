@@ -1,6 +1,7 @@
-package study.p42576;
+package study.hash.p42576;
 
 import org.junit.jupiter.api.Test;
+import study.hash.p42576.Solution;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
