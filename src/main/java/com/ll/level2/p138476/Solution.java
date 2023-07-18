@@ -24,8 +24,4 @@ class Solution {
         }
         return answer;
     }
-
-    public static void main(String[] args) {
-        System.out.println(solution(6, new int[]{1, 3, 2, 5, 4, 5, 2, 3}));
-    }
 }
