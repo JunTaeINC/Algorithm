@@ -7,27 +7,28 @@ import java.util.Map;
 
 class Solution {
 	public static int[] solution(String msg) {
-		Map<String, Integer> map = new HashMap<>();
 		List<Integer> answer = new ArrayList<>();
+		Map<String, Integer> map = new HashMap<>();
 
-		for (char i = 'A'; i <= 'Z'; i++) {
-			map.put(String.valueOf(i), i - 'A' + 1);
+		for (char c = 'A'; c <= 'Z'; c++) {
+			map.put(String.valueOf(c), c - 'A' + 1);
 		}
 
-		String str = "";
 		int index = 27;
 		int i = 0;
+		String str = "";
+
 		while (i < msg.length()) {
 			str += msg.charAt(i);
 			i++;
-
 			if (i == msg.length() || !map.containsKey(str + msg.charAt(i))) {
 				answer.add(map.get(str));
-				map.put(str + (i < msg.length() ? String.valueOf(msg.charAt(i)) : ""), index++);
+				if (i < msg.length()) {
+					map.put(str + msg.charAt(i), index++);
+				}
 				str = "";
 			}
 		}
-
 		return answer.stream().mapToInt(Integer::intValue).toArray();
 	}
 }
