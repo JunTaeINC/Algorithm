@@ -13,6 +13,7 @@ public class BadNeighbors {
 
     public static int maxDonations(int[] donations, int start, int end) {
         int[] dp = new int[donations.length];
+
         for (int i = start; i < end; i++) {
             dp[i] = donations[i];
             if (i > start) dp[i] = Math.max(dp[i], dp[i - 1]);
