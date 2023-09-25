@@ -1,4 +1,4 @@
-package com.baekjoon.silver.p11000;
+package com.baekjoon.gold.p11000;
 
 import java.io.BufferedReader;
 import java.io.IOException;
