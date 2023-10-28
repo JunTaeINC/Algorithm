@@ -3,8 +3,6 @@ package com.baekjoon.silver.p1012;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -38,7 +36,7 @@ public class Main {
             for (int x = 0; x < X; x++) {
                 for (int y = 0; y < Y; y++) {
                     if (!isVisited[x][y] && map[x][y] == 1) {
-                        bfs(x, y);
+                        dfs(x, y);
                         answer++;
                     }
                 }
@@ -48,33 +46,17 @@ public class Main {
         }
     }
 
-    private static void bfs(int x, int y) {
-        Queue<Point> queue = new LinkedList<>();
-        queue.offer(new Point(x, y));
+    private static void dfs(int x, int y) {
         isVisited[x][y] = true;
-        while (!queue.isEmpty()) {
-            Point point = queue.poll();
-            for (int i = 0; i < 4; i++) {
-                int nx = point.x + dx[i];
-                int ny = point.y + dy[i];
-                if (ny < 0 || nx < 0 || ny >= Y || nx >= X) {
-                    continue;
-                }
-                if (!isVisited[nx][ny] && map[nx][ny] == 1) {
-                    queue.offer(new Point(nx, ny));
-                    isVisited[nx][ny] = true;
-                }
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if (nx < 0 || ny < 0 || nx >= X || ny >= Y) {
+                continue;
             }
-        }
-    }
-
-    static class Point {
-        int x;
-        int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
+            if (!isVisited[nx][ny] && map[nx][ny] == 1) {
+                dfs(nx, ny);
+            }
         }
     }
 }
