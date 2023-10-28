@@ -3,10 +3,7 @@ package com.baekjoon.silver.p1926;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
     static int Y;
@@ -36,7 +33,7 @@ public class Main {
             for (int j = 0; j < X; j++) {
                 count = 0;
                 if (!isVisited[i][j] && map[i][j].equals("1")) {
-                    dfs(i, j);
+                    bfs(i, j);
                     answer.add(count);
                 }
             }
@@ -47,18 +44,34 @@ public class Main {
         System.out.println(answer.size() == 0 ? 0 : answer.get(answer.size() - 1));
     }
 
-    private static void dfs(int y, int x) {
+    private static void bfs(int y, int x) {
+        Queue<Point> queue = new LinkedList<>();
+        queue.add(new Point(y, x));
         isVisited[y][x] = true;
-        count++;
-        for (int i = 0; i < 4; i++) {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if (ny < 0 || nx < 0 || ny >= Y || nx >= X) {
-                continue;
+        while (!queue.isEmpty()) {
+            Point point = queue.poll();
+            count++;
+            for (int i = 0; i < 4; i++) {
+                int ny = point.y + dy[i];
+                int nx = point.x + dx[i];
+                if (ny < 0 || nx < 0 || ny >= Y || nx >= X) {
+                    continue;
+                }
+                if (!isVisited[ny][nx] && map[ny][nx].equals("1")) {
+                    queue.add(new Point(ny, nx));
+                    isVisited[ny][nx] = true;
+                }
             }
-            if (!isVisited[ny][nx] && map[ny][nx].equals("1")) {
-                dfs(ny, nx);
-            }
+        }
+    }
+
+    static class Point {
+        int y;
+        int x;
+
+        public Point(int y, int x) {
+            this.y = y;
+            this.x = x;
         }
     }
 }
