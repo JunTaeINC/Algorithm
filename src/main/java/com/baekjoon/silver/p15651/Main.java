@@ -17,12 +17,12 @@ public class Main {
 
         temp = new int[M];
 
-        dfs(0, 0);
+        dfs(0);
 
         System.out.println(sb);
     }
 
-    private static void dfs(int num, int depth) {
+    private static void dfs(int depth) {
         if (depth == M) {
             for (int t : temp) {
                 sb.append(t).append(" ");
@@ -31,9 +31,9 @@ public class Main {
             return;
         }
 
-        for (int i = num; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             temp[depth] = i + 1;
-            dfs(num, depth + 1);
+            dfs(depth + 1);
         }
     }
 }

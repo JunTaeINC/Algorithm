@@ -3,26 +3,32 @@ package com.baekjoon.silver.p15649;
 import java.util.Scanner;
 
 public class Main {
+    static int N;
+    static int M;
     static int[] arr;
     static boolean[] isVisited;
+    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int M = sc.nextInt();
+        N = sc.nextInt();
+        M = sc.nextInt();
 
         arr = new int[M];
         isVisited = new boolean[N];
 
-        dfs(N, M, 0);
+        dfs(0);
+
+        System.out.println(sb);
     }
 
-    private static void dfs(int N, int M, int depth) {
+    private static void dfs(int depth) {
         if (depth == M) {
             for (int a : arr) {
-                System.out.print(a + " ");
+                sb.append(a).append(" ");
             }
-            System.out.println();
+
+            sb.append("\n");
             return;
         }
 
@@ -30,7 +36,7 @@ public class Main {
             if (!isVisited[i]) {
                 isVisited[i] = true;
                 arr[depth] = i + 1;
-                dfs(N, M, depth + 1);
+                dfs(depth + 1);
                 isVisited[i] = false;
             }
         }

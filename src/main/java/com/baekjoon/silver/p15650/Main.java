@@ -6,7 +6,6 @@ public class Main {
     static int N;
     static int M;
     static int[] temp;
-    static boolean[] isVisited;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -15,7 +14,6 @@ public class Main {
         M = sc.nextInt();
 
         temp = new int[M];
-        isVisited = new boolean[N];
 
         dfs(0, 0);
     }
@@ -30,12 +28,8 @@ public class Main {
         }
 
         for (int i = num; i < N; i++) {
-            if (!isVisited[i]) {
-                isVisited[i] = true;
-                temp[depth] = i + 1;
-                dfs(i + 1, depth + 1);
-                isVisited[i] = false;
-            }
+            temp[depth] = i + 1;
+            dfs(i + 1, depth + 1);
         }
     }
 }
