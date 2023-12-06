@@ -11,7 +11,6 @@ public class Main {
 
     static int length;
     static String[] words;
-    static boolean[] isVisited;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -23,7 +22,6 @@ public class Main {
 
         words = br.readLine().split(" ");
         Arrays.sort(words);
-        isVisited = new boolean[N];
 
         dfs(0, 0, "");
 
@@ -39,11 +37,7 @@ public class Main {
         }
 
         for (int i = index; i < words.length; i++) {
-            if (!isVisited[i]) {
-                isVisited[i] = true;
-                dfs(depth + 1, i + 1, word + words[i]);
-                isVisited[i] = false;
-            }
+            dfs(depth + 1, i + 1, word + words[i]);
         }
     }
 
