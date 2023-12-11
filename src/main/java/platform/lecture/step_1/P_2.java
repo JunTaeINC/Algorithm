@@ -1,6 +1,6 @@
 package platform.lecture.step_1;
 
-public class Problem_2 {
+public class P_2 {
 
     private static String solution(String string) {
         string = string.toLowerCase();

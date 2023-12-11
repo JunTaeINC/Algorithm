@@ -1,6 +1,6 @@
 package platform.lecture.step_1;
 
-public class Problem_3 {
+public class P_3 {
 
     public static void main(String[] args) {
         System.out.println(solution("a#b!GE*T@S"));   // S#T!EG*b@a
