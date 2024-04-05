@@ -142,3 +142,4 @@ replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java
 /.idea/git_toolbox_prj.xml
+/.gradle/7.5.1/
