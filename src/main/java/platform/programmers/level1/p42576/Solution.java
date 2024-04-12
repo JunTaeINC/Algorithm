@@ -1,24 +1,24 @@
 package platform.programmers.level1.p42576;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution {
+
 	public String solution(String[] participant, String[] completion) {
 		String answer = "";
+		Map<String, Integer> map = new HashMap<>();
 
-		List<String> a = Arrays.stream(participant).sorted().collect(Collectors.toList());
-		List<String> b = Arrays.stream(completion).collect(Collectors.toList());
+		for (String p : participant) {
+			map.put(p, map.getOrDefault(p, 0) + 1);
+		}
 
-		b.add(" ");
-		Collections.sort(b);
+		for (String c : completion) {
+			map.put(c, map.get(c) - 1);
+		}
 
-		for (int i = 0; i < a.size(); i++) {
-			if (!a.get(i).equals(b.get(i))) {
-				answer = a.get(i);
-			}
+		for (String key : map.keySet()) {
+			if (map.get(key) != 0) answer = key;
 		}
 
 		return answer;
